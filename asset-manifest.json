@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/replace-synonyms/static/css/main.09b2067a.css",
-    "main.js": "/replace-synonyms/static/js/main.25b591d3.js",
+    "main.css": "/replace-synonyms/static/css/main.84544dbb.css",
+    "main.js": "/replace-synonyms/static/js/main.e05235a1.js",
     "static/media/down.svg": "/replace-synonyms/static/media/down.53b7c284761bb7534f3c99b27c33cba9.svg",
     "static/media/up.svg": "/replace-synonyms/static/media/up.80a6960e575f66e619f3a2d840f67fe0.svg",
     "index.html": "/replace-synonyms/index.html",
     "static/media/rotate.svg": "/replace-synonyms/static/media/rotate.473d80442eaa75d6d920fc19fb8cb7c0.svg",
     "static/media/copy.svg": "/replace-synonyms/static/media/copy.dadb5cdfc68b97c604715c31bb3de6c0.svg",
-    "main.09b2067a.css.map": "/replace-synonyms/static/css/main.09b2067a.css.map",
-    "main.25b591d3.js.map": "/replace-synonyms/static/js/main.25b591d3.js.map"
+    "main.84544dbb.css.map": "/replace-synonyms/static/css/main.84544dbb.css.map",
+    "main.e05235a1.js.map": "/replace-synonyms/static/js/main.e05235a1.js.map"
   },
   "entrypoints": [
-    "static/css/main.09b2067a.css",
-    "static/js/main.25b591d3.js"
+    "static/css/main.84544dbb.css",
+    "static/js/main.e05235a1.js"
   ]
 }
