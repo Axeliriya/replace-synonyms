@@ -1,0 +1,30 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px 0;
+}
+
+.loader {
+  text-align: center;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 38px;
+  line-height: 45px;
+
+  color: #45515f;
+}
+
+@media screen and (min-width: 769px) {
+  .form {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .main {
+    grid-column: 2 / -2;
+  }
+}
