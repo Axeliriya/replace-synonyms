@@ -1,0 +1,11 @@
+.header {
+    font-weight: 600;
+font-size: 36px;
+line-height: 1.115;
+
+text-align: center;
+text-transform: uppercase;
+
+color: #FFFFFF;
+    background: linear-gradient(278.04deg, #FFC83E 31.99%, #FF9F47 81.27%);
+}

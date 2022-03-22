@@ -1,0 +1,12 @@
+.header {
+  padding: 15px;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.11;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+  background: linear-gradient(278.04deg, #ffc83e 31.99%, #ff9f47 81.27%);
+}

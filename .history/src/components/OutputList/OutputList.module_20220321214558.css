@@ -1,0 +1,8 @@
+.list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap15px
+  list-style-type: none;
+  padding: 0;
+  color: #45515f;
+}

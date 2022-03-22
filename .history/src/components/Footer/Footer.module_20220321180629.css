@@ -1,0 +1,4 @@
+.footer {
+    background-color:chocolate;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}

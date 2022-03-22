@@ -1,0 +1,14 @@
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px 0;
+}
+
+@media screen and (min-width: 769) {
+  .form {
+    display: grid;
+    grid-template-columns: 2fr;
+    gap: 20px;
+  }
+}

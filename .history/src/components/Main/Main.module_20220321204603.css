@@ -1,0 +1,9 @@
+.main {
+  padding: 15px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 20px;
+}

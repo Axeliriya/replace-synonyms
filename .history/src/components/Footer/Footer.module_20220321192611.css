@@ -1,0 +1,18 @@
+.footer {
+  position: relative;
+  padding: 15px;
+}
+
+.footer::after {
+  content: '';
+  position: absolute;
+  display: block;
+  z-index: -2;
+  top: -10px;
+  right: 0;
+  width: 100%;
+  height: auto;
+  background: linear-gradient(278.04deg, #ffc83e 31.99%, #ff9f47 81.27%);
+  transform: matrix(4, 0, 0, 1, 0, 0);
+  border-radius: 0 0 50% 50%;
+}
