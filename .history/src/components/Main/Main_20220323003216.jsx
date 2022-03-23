@@ -27,6 +27,34 @@ export const Main = () => {
     }
   };
 
+  const variants = async inputs => {
+    const { word, synonyms, text: textInput } = inputs;
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    const vs = textInput
+      .split(' ')
+      .reduce(
+        (acc, el) => (
+          el.replace(/[\W\d]/g, '') === word
+            ? acc.push(synonyms[getRandomInt(0, synonyms.length)])
+            : acc.push(el),
+          acc
+        ),
+        [],
+      )
+      .join(' ');
+
+    const data = {
+      text: vs,
+    };
+
+    await axios.post('http://localhost:3001/data', { ...data });
+  };
+
   const onSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
@@ -38,13 +66,14 @@ export const Main = () => {
     };
 
     try {
-      await axios.post('http://localhost:3001/input', { ...inputs }); // здесь происходит отправка объекта на сервер
-      const { data } = await axios.get('http://localhost:3001/data'); // получение данных с сервера
+      await axios.post('http://localhost:3001/input', { ...inputs });
+      await variants({ ...inputs });
+      const { data } = await axios.get('http://localhost:3001/data');
       setTextsList(data);
       setIsLoading(false);
     } catch (error) {
-      setError(error?.message);
       setIsLoading(false);
+      setError(error?.message);
       throw new Error(error);
     }
   };

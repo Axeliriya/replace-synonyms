@@ -5,6 +5,6 @@ export * from './Header/Header';
 export * from './Section/Section';
 export * from './Input/Input';
 export * from './Textarea/Textarea';
-export * from './TextsList/TextsList';
-export * from './TextsItem/TextsItem';
+export * from './VariantsList/OutputList';
+export * from './OutputItem/OutputItem';
 export * from './Button/Button';

@@ -6,5 +6,5 @@ export * from './Section/Section';
 export * from './Input/Input';
 export * from './Textarea/Textarea';
 export * from './TextsList/TextsList';
-export * from './TextsItem/TextsItem';
+export * from './TextsItem/OutputItem';
 export * from './Button/Button';
