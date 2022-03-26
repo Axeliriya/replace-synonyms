@@ -20,19 +20,13 @@
 }
 
 .title {
-  width: 280px;
+  width: 520px;
   margin: 0;
   font-weight: 600;
   font-size: 32px;
   line-height: 33px;
   color: #45515f;
   margin-bottom: 15px;
-}
-
-@media screen and (min-width: 560px) {
-  .title {
-    width: 520px;
-  }
 }
 
 @media screen and (min-width: 769px) {
