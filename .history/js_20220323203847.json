@@ -1,0 +1,11 @@
+{
+  "data": [],
+  "input": [
+    {
+      "word": "Lorem",
+      "synonyms": ["sit,", "elit"],
+      "text": "Lorem1 ipsum dolor, Lorem amet consectetur adipisicing Lorem. Molestias laborum dicta facere. Delectus nulla laudantium eum quo sequi dignissimos quos quod. Perferendis tenetur obcaecati, quibusdam id rem quos ipsam eos.",
+      "id": 2
+    }
+  ]
+}
