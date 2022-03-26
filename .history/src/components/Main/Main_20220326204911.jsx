@@ -33,7 +33,7 @@ export const Main = () => {
 
     const inputs = {
       word,
-      synonyms,
+      synonyms: synonyms,
       text,
     };
 
