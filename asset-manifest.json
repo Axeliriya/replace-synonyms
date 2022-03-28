@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/replace-synonyms/static/css/main.c969f6f6.css",
-    "main.js": "/replace-synonyms/static/js/main.d616ea2e.js",
+    "main.css": "/replace-synonyms/static/css/main.01021650.css",
+    "main.js": "/replace-synonyms/static/js/main.ad7709fb.js",
+    "static/media/git.svg": "/replace-synonyms/static/media/git.6ceeb6bfd3846430ca02e892dad91db6.svg",
     "static/media/down.svg": "/replace-synonyms/static/media/down.53b7c284761bb7534f3c99b27c33cba9.svg",
     "static/media/up.svg": "/replace-synonyms/static/media/up.80a6960e575f66e619f3a2d840f67fe0.svg",
     "index.html": "/replace-synonyms/index.html",
     "static/media/rotate.svg": "/replace-synonyms/static/media/rotate.f3d8f3f09d971c28f7f8896c9064ea5f.svg",
-    "static/media/copy.svg": "/replace-synonyms/static/media/copy.dadb5cdfc68b97c604715c31bb3de6c0.svg",
-    "main.c969f6f6.css.map": "/replace-synonyms/static/css/main.c969f6f6.css.map",
-    "main.d616ea2e.js.map": "/replace-synonyms/static/js/main.d616ea2e.js.map"
+    "static/media/copy.svg": "/replace-synonyms/static/media/copy.d8ece7a9ba0c1a47ba7bebf17aa23656.svg",
+    "main.01021650.css.map": "/replace-synonyms/static/css/main.01021650.css.map",
+    "main.ad7709fb.js.map": "/replace-synonyms/static/js/main.ad7709fb.js.map"
   },
   "entrypoints": [
-    "static/css/main.c969f6f6.css",
-    "static/js/main.d616ea2e.js"
+    "static/css/main.01021650.css",
+    "static/js/main.ad7709fb.js"
   ]
 }
