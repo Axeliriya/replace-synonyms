@@ -1,0 +1,10 @@
+.footer {
+  padding: 15px;
+  background: linear-gradient(278.04deg, #ffc83e 31.99%, #ff9f47 81.27%);
+}
+
+@media screen and (min-width: 1280px) {
+  .footer {
+    grid-column: 1 / -1;
+  }
+}

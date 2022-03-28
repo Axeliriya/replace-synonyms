@@ -1,0 +1,27 @@
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  padding: 15px;
+  background: linear-gradient(278.04deg, #ffc83e 31.99%, #ff9f47 81.27%);
+}
+
+.title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  text-transform: uppercase;
+  color: #ffffff;
+  grid-column: 2 / -2;
+}
+
+@media screen and (min-width: 1280px) {
+  .header {
+    grid-template-columns: auto 1260px auto;
+    grid-column: 1 / -1;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 1.11;
+  }
+}

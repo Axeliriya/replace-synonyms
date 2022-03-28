@@ -1,0 +1,22 @@
+.footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  padding: 15px;
+  background: linear-gradient(278.04deg, #ffc83e 31.99%, #ff9f47 81.27%);
+}
+
+.contacts {
+  display: flex;
+  gap: 20px;
+}
+
+@media screen and (min-width: 1280px) {
+  .footer {
+    grid-template-columns: auto 1230px auto;
+    grid-column: 1 / -1;
+  }
+  .contacts {
+    grid-template-columns: auto 1230px auto;
+    grid-column: 2 / -2;
+  }
+}

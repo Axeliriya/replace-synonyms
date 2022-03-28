@@ -1,0 +1,41 @@
+.footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  padding: 15px;
+  background: linear-gradient(278.04deg, #ffc83e 31.99%, #ff9f47 81.27%);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #000;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links {
+  font-style: normal;
+
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.links:hover {
+  text-decoration: underline;
+}
+
+.img {
+  margin-right: 5px;
+}
+
+@media screen and (min-width: 1280px) {
+  .footer {
+    grid-template-columns: auto 1230px auto;
+    grid-column: 1 / -1;
+  }
+  .wrapper {
+    grid-template-columns: auto 1230px auto;
+    grid-column: 2 / -2;
+  }
+}
