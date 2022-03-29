@@ -18,17 +18,20 @@ export const Main = () => {
     const section = sections.reduce((acc, item) => {
       if (acc.length === 0) acc = [];
 
-      if (
-        item.synonyms === acc[acc.length - 1]?.synonyms &&
-        item.word === acc[acc.length - 1]?.word
-      ) {
-        acc[acc.length - 1].data.unshift(item.data);
+      if (item.synonyms === acc[acc.length - (acc.length - 1)]?.synonyms) {
+        console.log(item.synonyms);
+        console.log(acc[acc.length - (acc.length - 1)]?.synonyms);
+        acc[acc.length - acc.length - 1].data.push(item.data);
       } else {
-        acc.push({
+        console.log(acc[acc.length - (acc.length - 1)]?.synonyms);
+        console.log(acc.length);
+        console.log(acc.length - 1);
+        console.log(acc.length - (acc.length - 1));
+        console.log(item.synonyms);
+        acc.unshift({
           word: item.word,
           synonyms: item.synonyms,
           data: [item.data],
-          createdAt: item.createdAt,
         });
       }
       return acc;
@@ -61,8 +64,6 @@ export const Main = () => {
       text,
     };
 
-    const date = { createdAt: Date.parse(new Date()) };
-
     try {
       const { data } = await axios.post(
         'https://wezochy-replace-words.herokuapp.com/data',
@@ -70,9 +71,11 @@ export const Main = () => {
           ...inputs,
         },
       );
-      textsList.push({ ...data, ...inputs, ...date });
+      textsList.push({ ...data, ...inputs });
       setTextsList(textsList);
       getSections(textsList);
+      console.log(textsList);
+      console.log(sections);
       // textsList.unshift({ ...data, ...inputs });
       // setTextsList(textsList);
       setIsLoading(false);
@@ -94,7 +97,6 @@ export const Main = () => {
     setSynonyms('');
     setText('');
     // setTextsList([]);
-    setSections([]);
   };
 
   return (
@@ -103,7 +105,6 @@ export const Main = () => {
         <form className={styles.form} onSubmit={e => onSubmit(e)}>
           <Input value={word} name="word" onChange={onChange} />
           <Input value={synonyms} name="synonyms" onChange={onChange} />
-
           <Textarea
             value={text}
             name="text"
@@ -125,10 +126,7 @@ export const Main = () => {
       <hr className={styles.hr} />
       <Section className={styles.variants}>
         <h1 className={styles.title}>Variants of the modified text</h1>
-        {sections.length > 0 && (
-          <Button className={styles.btn} text="Сlear" onClick={onClear} />
-        )}
-
+        <Button className={styles.btn} text="Сlear" onClick={onClear} />
         {error ? (
           <div className={styles.loader}>{error}</div>
         ) : (

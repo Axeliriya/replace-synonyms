@@ -22,11 +22,6 @@
   gap: 20px 0;
 }
 
-.loading {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .loader {
   text-align: center;
 }
@@ -62,10 +57,6 @@
   .form {
     grid-template-columns: 1fr 2fr;
     gap: 20px;
-  }
-
-  .loading {
-    grid-column: 2 / -1;
   }
 
   .title {

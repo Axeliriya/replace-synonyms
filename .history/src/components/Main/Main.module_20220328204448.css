@@ -22,19 +22,15 @@
   gap: 20px 0;
 }
 
-.loading {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .loader {
+  position: absolute;
   text-align: center;
 }
 
-.loader svg {
-  width: 100px;
-  height: auto;
-}
+/* .loader svg {
+  position: absolute;
+  text-align: center;
+} */
 
 .title {
   width: 210px;
@@ -62,10 +58,6 @@
   .form {
     grid-template-columns: 1fr 2fr;
     gap: 20px;
-  }
-
-  .loading {
-    grid-column: 2 / -1;
   }
 
   .title {

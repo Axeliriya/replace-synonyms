@@ -22,17 +22,15 @@
   gap: 20px 0;
 }
 
-.loading {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .loader {
+  width: 150px;
+  position: absolute;
   text-align: center;
 }
 
 .loader svg {
-  width: 100px;
+  display: block;
+  width: 100%;
   height: auto;
 }
 
@@ -62,10 +60,6 @@
   .form {
     grid-template-columns: 1fr 2fr;
     gap: 20px;
-  }
-
-  .loading {
-    grid-column: 2 / -1;
   }
 
   .title {

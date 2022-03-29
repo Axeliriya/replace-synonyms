@@ -65,7 +65,7 @@
   }
 
   .loading {
-    grid-column: 2 / -1;
+    grid-column: 2 /-2;
   }
 
   .title {

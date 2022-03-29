@@ -102,8 +102,9 @@ export const Main = () => {
       <Section>
         <form className={styles.form} onSubmit={e => onSubmit(e)}>
           <Input value={word} name="word" onChange={onChange} />
-          <Input value={synonyms} name="synonyms" onChange={onChange} />
-
+          {sections.length > 0 && (
+            <Input value={synonyms} name="synonyms" onChange={onChange} />
+          )}
           <Textarea
             value={text}
             name="text"
@@ -125,10 +126,7 @@ export const Main = () => {
       <hr className={styles.hr} />
       <Section className={styles.variants}>
         <h1 className={styles.title}>Variants of the modified text</h1>
-        {sections.length > 0 && (
-          <Button className={styles.btn} text="Сlear" onClick={onClear} />
-        )}
-
+        <Button className={styles.btn} text="Сlear" onClick={onClear} />
         {error ? (
           <div className={styles.loader}>{error}</div>
         ) : (

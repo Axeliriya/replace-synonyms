@@ -4,6 +4,7 @@ import { ReactComponent as Rotate } from './rotate.svg';
 import { useState } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 export const Main = () => {
   const [word, setWord] = useState('');
@@ -18,12 +19,10 @@ export const Main = () => {
     const section = sections.reduce((acc, item) => {
       if (acc.length === 0) acc = [];
 
-      if (
-        item.synonyms === acc[acc.length - 1]?.synonyms &&
-        item.word === acc[acc.length - 1]?.word
-      ) {
-        acc[acc.length - 1].data.unshift(item.data);
+      if (item.synonyms === acc[acc.length - 1]?.synonyms) {
+        acc[acc.length - 1].data.push(item.data);
       } else {
+        console.log(Date.parse(item.createdAt));
         acc.push({
           word: item.word,
           synonyms: item.synonyms,
@@ -61,7 +60,7 @@ export const Main = () => {
       text,
     };
 
-    const date = { createdAt: Date.parse(new Date()) };
+    const date = { createdAt: dayjs(new Date()).format('DD.MM.YYYY HH:mm:ss') };
 
     try {
       const { data } = await axios.post(
@@ -94,7 +93,6 @@ export const Main = () => {
     setSynonyms('');
     setText('');
     // setTextsList([]);
-    setSections([]);
   };
 
   return (
@@ -103,7 +101,6 @@ export const Main = () => {
         <form className={styles.form} onSubmit={e => onSubmit(e)}>
           <Input value={word} name="word" onChange={onChange} />
           <Input value={synonyms} name="synonyms" onChange={onChange} />
-
           <Textarea
             value={text}
             name="text"
@@ -125,10 +122,7 @@ export const Main = () => {
       <hr className={styles.hr} />
       <Section className={styles.variants}>
         <h1 className={styles.title}>Variants of the modified text</h1>
-        {sections.length > 0 && (
-          <Button className={styles.btn} text="Сlear" onClick={onClear} />
-        )}
-
+        <Button className={styles.btn} text="Сlear" onClick={onClear} />
         {error ? (
           <div className={styles.loader}>{error}</div>
         ) : (

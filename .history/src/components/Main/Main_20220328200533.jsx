@@ -12,30 +12,6 @@ export const Main = () => {
   const [textsList, setTextsList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [sections, setSections] = useState([]);
-
-  const getSections = sections => {
-    const section = sections.reduce((acc, item) => {
-      if (acc.length === 0) acc = [];
-
-      if (
-        item.synonyms === acc[acc.length - 1]?.synonyms &&
-        item.word === acc[acc.length - 1]?.word
-      ) {
-        acc[acc.length - 1].data.unshift(item.data);
-      } else {
-        acc.push({
-          word: item.word,
-          synonyms: item.synonyms,
-          data: [item.data],
-          createdAt: item.createdAt,
-        });
-      }
-      return acc;
-    }, []);
-    console.log(section);
-    setSections(section);
-  };
 
   const onChange = e => {
     switch (e.target.name) {
@@ -61,20 +37,15 @@ export const Main = () => {
       text,
     };
 
-    const date = { createdAt: Date.parse(new Date()) };
-
     try {
       const { data } = await axios.post(
         'https://wezochy-replace-words.herokuapp.com/data',
         {
           ...inputs,
         },
-      );
-      textsList.push({ ...data, ...inputs, ...date });
+      ); // здесь происходит отправка объекта на сервер
+      textsList.unshift({ ...data, ...inputs });
       setTextsList(textsList);
-      getSections(textsList);
-      // textsList.unshift({ ...data, ...inputs });
-      // setTextsList(textsList);
       setIsLoading(false);
     } catch (error) {
       setError(error?.message);
@@ -93,8 +64,7 @@ export const Main = () => {
     setWord('');
     setSynonyms('');
     setText('');
-    // setTextsList([]);
-    setSections([]);
+    setTextsList([]);
   };
 
   return (
@@ -103,46 +73,31 @@ export const Main = () => {
         <form className={styles.form} onSubmit={e => onSubmit(e)}>
           <Input value={word} name="word" onChange={onChange} />
           <Input value={synonyms} name="synonyms" onChange={onChange} />
-
           <Textarea
             value={text}
             name="text"
             onChange={onChange}
             onKeyDown={onSubmitOnEnter}
           />
-          <div className={styles.loading}>
-            {isLoading && (
-              <div className={styles.loader}>
-                <InfinitySpin color="grey" />
-              </div>
-            )}
-            <Button text="Replace">
-              <Rotate />
-            </Button>
-          </div>
+          <Button text="Replace">
+            <Rotate />
+          </Button>
         </form>
       </Section>
       <hr className={styles.hr} />
-      <Section className={styles.variants}>
+      <Section className={styles.var}>
         <h1 className={styles.title}>Variants of the modified text</h1>
-        {sections.length > 0 && (
-          <Button className={styles.btn} text="Сlear" onClick={onClear} />
-        )}
-
-        {error ? (
-          <div className={styles.loader}>{error}</div>
-        ) : (
-          <TextsList data={sections} />
-        )}
-        {/* {isLoading ? (
-          <div className={styles.loader}>
-            <InfinitySpin color="grey" width={150} />
-          </div>
+        <Button className={styles.btn} text="Сlear" onClick={onClear} />
+        {isLoading ? (
+          <><div className={styles.loader}>
+          <InfinitySpin color="grey" width={150} />
+        </div>
+        <TextsList data={textsList} /></>
         ) : error ? (
           <div className={styles.loader}>{error}</div>
         ) : (
-          <TextsList data={textsList} />
-        )} */}
+          
+        )}
       </Section>
     </main>
   );

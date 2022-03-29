@@ -1,7 +1,7 @@
 // import styles from './TextsList.module.css';
 // import { TextsItem } from '..';
 // import { useState, useEffect } from 'react';
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 
 export const TextsList = ({ data }) => {
   // const [sections, setSections] = useState([]);
@@ -35,8 +35,7 @@ export const TextsList = ({ data }) => {
           ?.sort((a, b) => b.createdAt - a.createdAt)
           .map(section => (
             <li key={section.createdAt}>
-              {section.word} {section.synonyms}{' '}
-              {dayjs(section.createdAt).format('YYYY-MM-DD HH:mm:ss')}
+              {section.word} {section.synonyms} {dayjs(section.createdAt).format(YYYY-MM-DD HH:mm:ss)}
               <ul>
                 {section.data.map((list, i) => (
                   <li key={i}>{list}</li>

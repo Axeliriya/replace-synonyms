@@ -24,7 +24,7 @@
 
 .loading {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .loader {
@@ -62,10 +62,6 @@
   .form {
     grid-template-columns: 1fr 2fr;
     gap: 20px;
-  }
-
-  .loading {
-    grid-column: 2 / -1;
   }
 
   .title {

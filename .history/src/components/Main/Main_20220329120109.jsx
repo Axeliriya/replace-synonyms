@@ -116,19 +116,18 @@ export const Main = () => {
                 <InfinitySpin color="grey" />
               </div>
             )}
-            <Button text="Replace">
-              <Rotate />
-            </Button>
+            {sections.length > 0 && (
+              <Button text="Replace">
+                <Rotate />
+              </Button>
+            )}
           </div>
         </form>
       </Section>
       <hr className={styles.hr} />
       <Section className={styles.variants}>
         <h1 className={styles.title}>Variants of the modified text</h1>
-        {sections.length > 0 && (
-          <Button className={styles.btn} text="Сlear" onClick={onClear} />
-        )}
-
+        <Button className={styles.btn} text="Сlear" onClick={onClear} />
         {error ? (
           <div className={styles.loader}>{error}</div>
         ) : (

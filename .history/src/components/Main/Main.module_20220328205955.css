@@ -64,10 +64,6 @@
     gap: 20px;
   }
 
-  .loading {
-    grid-column: 2 / -1;
-  }
-
   .title {
     width: auto;
     font-size: 38px;

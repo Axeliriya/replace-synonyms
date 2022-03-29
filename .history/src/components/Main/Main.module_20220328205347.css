@@ -22,17 +22,14 @@
   gap: 20px 0;
 }
 
-.loading {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .loader {
+  height: 106px;
   text-align: center;
 }
 
 .loader svg {
-  width: 100px;
+  display: block;
+  width: 150px;
   height: auto;
 }
 
@@ -62,10 +59,6 @@
   .form {
     grid-template-columns: 1fr 2fr;
     gap: 20px;
-  }
-
-  .loading {
-    grid-column: 2 / -1;
   }
 
   .title {

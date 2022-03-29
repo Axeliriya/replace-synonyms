@@ -1,8 +1,8 @@
-.variants {
+.var {
   position: relative;
 }
 
-.variants .btn {
+.var .btn {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -22,18 +22,9 @@
   gap: 20px 0;
 }
 
-.loading {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .loader {
   text-align: center;
-}
-
-.loader svg {
-  width: 100px;
-  height: auto;
+  grid-column: 2 / -2;
 }
 
 .title {
@@ -62,10 +53,6 @@
   .form {
     grid-template-columns: 1fr 2fr;
     gap: 20px;
-  }
-
-  .loading {
-    grid-column: 2 / -1;
   }
 
   .title {

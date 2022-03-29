@@ -1,7 +1,7 @@
 import styles from './Main.module.css';
 import { Section, Input, Textarea, TextsList, Button } from '..';
 import { ReactComponent as Rotate } from './rotate.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
 import axios from 'axios';
 
@@ -12,30 +12,6 @@ export const Main = () => {
   const [textsList, setTextsList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [sections, setSections] = useState([]);
-
-  const getSections = sections => {
-    const section = sections.reduce((acc, item) => {
-      if (acc.length === 0) acc = [];
-
-      if (
-        item.synonyms === acc[acc.length - 1]?.synonyms &&
-        item.word === acc[acc.length - 1]?.word
-      ) {
-        acc[acc.length - 1].data.unshift(item.data);
-      } else {
-        acc.push({
-          word: item.word,
-          synonyms: item.synonyms,
-          data: [item.data],
-          createdAt: item.createdAt,
-        });
-      }
-      return acc;
-    }, []);
-    console.log(section);
-    setSections(section);
-  };
 
   const onChange = e => {
     switch (e.target.name) {
@@ -61,20 +37,16 @@ export const Main = () => {
       text,
     };
 
-    const date = { createdAt: Date.parse(new Date()) };
-
     try {
       const { data } = await axios.post(
         'https://wezochy-replace-words.herokuapp.com/data',
         {
           ...inputs,
         },
-      );
-      textsList.push({ ...data, ...inputs, ...date });
+      ); // здесь происходит отправка объекта на сервер
+      textsList.unshift({ ...data, ...inputs });
+      // console.log({ ...data, ...inputs });
       setTextsList(textsList);
-      getSections(textsList);
-      // textsList.unshift({ ...data, ...inputs });
-      // setTextsList(textsList);
       setIsLoading(false);
     } catch (error) {
       setError(error?.message);
@@ -93,9 +65,32 @@ export const Main = () => {
     setWord('');
     setSynonyms('');
     setText('');
-    // setTextsList([]);
-    setSections([]);
+    setTextsList([]);
   };
+
+  // const sections = textsList?.reduce((acc, item, index) => {
+  //   if (acc.length === 0) acc = [];
+
+  //   const prevItem = acc[acc.length - 1];
+  //   // console.log(acc, item, index);
+
+  //   if (item.synonims === prevItem?.synonims) {
+  //     prevItem.list.push(item.data);
+  //   } else {
+  //     acc.push({
+  //       word: item.word,
+  //       synonims: item.synonims,
+  //       list: [item.data],
+  //     });
+  //   }
+  //   console.log(acc);
+
+  //   return acc;
+  // }, []);
+
+  // useEffect(() => {
+  //   sections && console.log(sections);
+  // }, []);
 
   return (
     <main className={styles.main}>
@@ -103,36 +98,31 @@ export const Main = () => {
         <form className={styles.form} onSubmit={e => onSubmit(e)}>
           <Input value={word} name="word" onChange={onChange} />
           <Input value={synonyms} name="synonyms" onChange={onChange} />
-
           <Textarea
             value={text}
             name="text"
             onChange={onChange}
             onKeyDown={onSubmitOnEnter}
           />
-          <div className={styles.loading}>
-            {isLoading && (
-              <div className={styles.loader}>
-                <InfinitySpin color="grey" />
-              </div>
-            )}
-            <Button text="Replace">
-              <Rotate />
-            </Button>
-          </div>
+
+          <Button text="Replace">
+            <Rotate />
+          </Button>
         </form>
       </Section>
       <hr className={styles.hr} />
       <Section className={styles.variants}>
         <h1 className={styles.title}>Variants of the modified text</h1>
-        {sections.length > 0 && (
-          <Button className={styles.btn} text="Сlear" onClick={onClear} />
+        <Button className={styles.btn} text="Сlear" onClick={onClear} />
+        {true && (
+          <div className={styles.loader}>
+            <InfinitySpin color="grey" width={120} height={30} />
+          </div>
         )}
-
         {error ? (
           <div className={styles.loader}>{error}</div>
         ) : (
-          <TextsList data={sections} />
+          <TextsList data={textsList} />
         )}
         {/* {isLoading ? (
           <div className={styles.loader}>
