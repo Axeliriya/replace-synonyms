@@ -1,0 +1,40 @@
+.button {
+  align-items: center;
+  justify-self: end;
+  border: 1px solid transparent;
+  background: #ffae61;
+  border-radius: 8px;
+  padding: 15px 35px;
+  font-weight: 600;
+  color: #45515f;
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clear {
+  background: rgb(0, 0, 0, 0.1);
+  border: 1px solid rgb(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  background: #ff9a3c;
+}
+
+.clear:hover {
+  background: rgb(0, 0, 0, 0.2);
+}
+
+.button:disabled {
+  position: relative;
+  background: #c9c9c9;
+  cursor: default;
+}
+
+.button:disabled:hover .button::after {
+  content: 'Все поля обязательны для заполнения';
+  position: absolute;
+  display: block;
+  background-color: rgb(0, 0, 0, 0.3);
+  border: rgb(0, 0, 0, 0.6);
+  border-radius: 5px;
+}

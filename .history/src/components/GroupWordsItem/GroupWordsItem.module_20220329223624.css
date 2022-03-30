@@ -1,0 +1,40 @@
+.item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.item:not(:first-child) {
+  opacity: 0.5;
+}
+
+.item:not(:first-child):hover {
+  opacity: 1;
+}
+
+.params {
+  background: #e9e9e9;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+@media screen and (min-width: 769px) {
+  .item {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .word {
+    grid-column: 1 / 2;
+  }
+  .synonyms {
+    grid-column: 2 / 4;
+  }
+  .date {
+    grid-column: 4 / -1;
+  }
+}

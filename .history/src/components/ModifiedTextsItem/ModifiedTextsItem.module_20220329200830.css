@@ -1,0 +1,129 @@
+.item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  /* padding: 15px; */
+  /* border: 1px solid rgb(236, 236, 236); */
+  /* border-radius: 10px; */
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.item:first-child .modified,
+.item:first-child .hidden.modified::after {
+  background-color: aquamarine;
+}
+
+.params {
+  background: #e9e9e9;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.modified {
+  position: relative;
+  background: #e9e9e9;
+  border: 1px solid transparent;
+  /* box-shadow: 0px 4px 44px rgba(228, 228, 228); */
+  border-radius: 12px;
+  padding: 15px 40px;
+  min-height: 48px;
+  max-height: 1000px;
+  overflow: hidden;
+  grid-column: 1 / -1;
+}
+
+.modified::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  display: block;
+  height: 0;
+  width: 0;
+}
+
+.hidden.modified {
+  height: 48px;
+  max-height: 50px;
+}
+
+.hidden.modified::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  height: 14px;
+  width: 100%;
+  background-color: #e9e9e9;
+}
+
+.button {
+  position: absolute;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.button.arrow svg {
+  fill: rgb(3, 29, 105, 0.7);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button.arrow:hover svg {
+  fill: rgb(3, 29, 105);
+}
+
+.button.copy svg {
+  stroke: rgb(3, 29, 105, 0.7);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button.copy:hover svg {
+  stroke: rgb(3, 29, 105);
+}
+
+.arrow {
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 44px;
+}
+
+.copy {
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 48px;
+}
+
+.copied {
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #abde97;
+  border: 1px solid #82cd64;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 12px 24px;
+  text-align: center;
+  color: rgb(27, 105, 3);
+}
+
+@media screen and (min-width: 1280px) {
+  .copied {
+    padding: 15px 70px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .item {
+    grid-template-columns: 1fr 2fr;
+  }
+}

@@ -1,0 +1,10 @@
+.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  list-style-type: none;
+}
+
+.list:not(:first-child) {
+  opacity: 0.5;
+}
