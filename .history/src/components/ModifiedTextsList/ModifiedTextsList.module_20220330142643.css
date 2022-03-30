@@ -1,0 +1,11 @@
+.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 0 20px;
+  color: #45515f;
+  grid-column: 1 / -1;
+  flex-direction: row-reverse;
+}
