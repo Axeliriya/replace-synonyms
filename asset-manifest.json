@@ -1,18 +1,17 @@
 {
   "files": {
-    "main.css": "/replace-synonyms/static/css/main.6167fced.css",
-    "main.js": "/replace-synonyms/static/js/main.8c9ff5b5.js",
+    "main.css": "/replace-synonyms/static/css/main.cef10010.css",
+    "main.js": "/replace-synonyms/static/js/main.30a1ff58.js",
     "static/media/git.svg": "/replace-synonyms/static/media/git.6ceeb6bfd3846430ca02e892dad91db6.svg",
     "static/media/down.svg": "/replace-synonyms/static/media/down.53b7c284761bb7534f3c99b27c33cba9.svg",
     "static/media/up.svg": "/replace-synonyms/static/media/up.80a6960e575f66e619f3a2d840f67fe0.svg",
     "index.html": "/replace-synonyms/index.html",
-    "static/media/rotate.svg": "/replace-synonyms/static/media/rotate.f3d8f3f09d971c28f7f8896c9064ea5f.svg",
     "static/media/copy.svg": "/replace-synonyms/static/media/copy.d8ece7a9ba0c1a47ba7bebf17aa23656.svg",
-    "main.6167fced.css.map": "/replace-synonyms/static/css/main.6167fced.css.map",
-    "main.8c9ff5b5.js.map": "/replace-synonyms/static/js/main.8c9ff5b5.js.map"
+    "main.cef10010.css.map": "/replace-synonyms/static/css/main.cef10010.css.map",
+    "main.30a1ff58.js.map": "/replace-synonyms/static/js/main.30a1ff58.js.map"
   },
   "entrypoints": [
-    "static/css/main.6167fced.css",
-    "static/js/main.8c9ff5b5.js"
+    "static/css/main.cef10010.css",
+    "static/js/main.30a1ff58.js"
   ]
 }
