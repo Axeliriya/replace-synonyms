@@ -15,6 +15,7 @@ export const Confirmation = ({ showModal, onOpenModal, onClear }) => {
   );
 
   useEffect(() => {
+    console.log(showModal);
     if (showModal) {
       window.addEventListener('keydown', handleKeyDown);
     }

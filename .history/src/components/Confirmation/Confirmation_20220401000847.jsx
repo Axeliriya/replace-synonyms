@@ -8,6 +8,7 @@ export const Confirmation = ({ showModal, onOpenModal, onClear }) => {
   const handleKeyDown = useCallback(
     e => {
       if (e.key === 'Escape') {
+        console.log(e.key);
         onOpenModal();
       }
     },
@@ -15,6 +16,7 @@ export const Confirmation = ({ showModal, onOpenModal, onClear }) => {
   );
 
   useEffect(() => {
+    console.log(showModal);
     if (showModal) {
       window.addEventListener('keydown', handleKeyDown);
     }

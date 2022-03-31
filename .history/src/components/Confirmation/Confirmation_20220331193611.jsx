@@ -2,26 +2,8 @@ import { Button } from '..';
 import styles from './Confirmation.module.css';
 import warning from './warning.png';
 import { motion } from 'framer-motion';
-import { useEffect, useCallback } from 'react';
 
 export const Confirmation = ({ showModal, onOpenModal, onClear }) => {
-  const handleKeyDown = useCallback(
-    e => {
-      if (e.key === 'Escape') {
-        onOpenModal();
-      }
-    },
-    [onOpenModal],
-  );
-
-  useEffect(() => {
-    if (showModal) {
-      window.addEventListener('keydown', handleKeyDown);
-    }
-
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [showModal, handleKeyDown]);
-
   const variants = {
     hidden: {
       opacity: 0,
@@ -43,9 +25,8 @@ export const Confirmation = ({ showModal, onOpenModal, onClear }) => {
       animate={showModal ? 'show' : 'hidden'}
       exit="hidden"
       className={styles.overlay}
-      onClick={onOpenModal}
     >
-      <div className={styles.modal} onClick={e => e.stopPropagation()}>
+      <div className={styles.modal}>
         <div className={styles.wrapper}>
           <img src={warning} alt="Warning icon" />
           <span>

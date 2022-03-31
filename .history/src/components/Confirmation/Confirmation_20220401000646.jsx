@@ -15,12 +15,13 @@ export const Confirmation = ({ showModal, onOpenModal, onClear }) => {
   );
 
   useEffect(() => {
+    console.log(showModal);
     if (showModal) {
       window.addEventListener('keydown', handleKeyDown);
     }
 
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [showModal, handleKeyDown]);
+  }, [showModal]);
 
   const variants = {
     hidden: {

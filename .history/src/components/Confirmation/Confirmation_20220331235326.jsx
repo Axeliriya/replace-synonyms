@@ -2,25 +2,28 @@ import { Button } from '..';
 import styles from './Confirmation.module.css';
 import warning from './warning.png';
 import { motion } from 'framer-motion';
-import { useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 
 export const Confirmation = ({ showModal, onOpenModal, onClear }) => {
-  const handleKeyDown = useCallback(
-    e => {
+  // const handleKeyDown = (e) => {
+  //   if(e.key === 'Escape') {
+  //           onOpenModal();
+  //         }
+  // }
+  useEffect(() => {
+    const handleKeyDown = e => {
       if (e.key === 'Escape') {
+        console.log(e.key);
         onOpenModal();
       }
-    },
-    [onOpenModal],
-  );
-
-  useEffect(() => {
+    };
+    console.log(showModal);
     if (showModal) {
-      window.addEventListener('keydown', handleKeyDown);
+      window.addEventListener('keydown', e => handleKeyDown(e));
     }
 
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [showModal, handleKeyDown]);
+    return () => window.removeEventListener('keydown', e => handleKeyDown(e));
+  }, []);
 
   const variants = {
     hidden: {

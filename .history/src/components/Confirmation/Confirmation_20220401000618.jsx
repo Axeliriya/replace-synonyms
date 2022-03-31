@@ -5,22 +5,20 @@ import { motion } from 'framer-motion';
 import { useEffect, useCallback } from 'react';
 
 export const Confirmation = ({ showModal, onOpenModal, onClear }) => {
-  const handleKeyDown = useCallback(
-    e => {
-      if (e.key === 'Escape') {
-        onOpenModal();
-      }
-    },
-    [onOpenModal],
-  );
+  const handleKeyDown = useCallback(e => {
+    if (e.key === 'Escape') {
+      onOpenModal();
+    }
+  }, []);
 
   useEffect(() => {
+    console.log(showModal);
     if (showModal) {
       window.addEventListener('keydown', handleKeyDown);
     }
 
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [showModal, handleKeyDown]);
+  }, []);
 
   const variants = {
     hidden: {
