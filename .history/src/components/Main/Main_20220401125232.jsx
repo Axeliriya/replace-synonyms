@@ -83,18 +83,22 @@ export const Main = () => {
     }
   };
 
+  const scrollWidth = e => {
+    console.dir(scroll.current);
+    console.dir();
+  };
+
   const onOpenModal = e => {
     setShowModal(!showModal);
     const scroll =
       scrollWidth.current.offsetWidth - scrollWidth.current.clientWidth;
-    console.log(scroll);
 
     if (showModal) {
       document.body.style.overflow = 'visible';
       document.body.style.marginRight = 0;
     } else {
       document.body.style.overflow = 'hidden';
-      document.body.style.marginRight = scroll + 'px';
+      document.body.style.overflow = scroll;
     }
   };
 
@@ -169,7 +173,11 @@ export const Main = () => {
           onClear={onClear}
         />
       )}
-      <div className={styles.scroll} ref={scrollWidth} />
+      <div
+        className={styles.scroll}
+        ref={scroll}
+        onClick={e => scrollWidth(e)}
+      />
     </main>
   );
 };

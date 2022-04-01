@@ -87,14 +87,13 @@ export const Main = () => {
     setShowModal(!showModal);
     const scroll =
       scrollWidth.current.offsetWidth - scrollWidth.current.clientWidth;
-    console.log(scroll);
 
     if (showModal) {
       document.body.style.overflow = 'visible';
       document.body.style.marginRight = 0;
     } else {
       document.body.style.overflow = 'hidden';
-      document.body.style.marginRight = scroll + 'px';
+      document.body.style.overflow = scroll;
     }
   };
 

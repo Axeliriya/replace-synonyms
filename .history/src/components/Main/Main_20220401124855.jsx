@@ -23,8 +23,6 @@ export const Main = () => {
   const [sections, setSections] = useState(saved.data());
   const [isNotValid, setIsNotValid] = useState(true);
 
-  const scrollWidth = useRef(null);
-
   useEffect(() => {
     if (word?.length < 1 || synonyms?.length < 1 || text?.length < 1) {
       setIsNotValid(true);
@@ -83,18 +81,20 @@ export const Main = () => {
     }
   };
 
+  const scroll = useRef(null);
+
+  const scrollWidth = e => {
+    console.dir(scroll);
+    console.dir(e.target.offsetWidth - e.target.clientWidth);
+  };
+
   const onOpenModal = e => {
     setShowModal(!showModal);
-    const scroll =
-      scrollWidth.current.offsetWidth - scrollWidth.current.clientWidth;
-    console.log(scroll);
 
     if (showModal) {
       document.body.style.overflow = 'visible';
-      document.body.style.marginRight = 0;
     } else {
       document.body.style.overflow = 'hidden';
-      document.body.style.marginRight = scroll + 'px';
     }
   };
 
@@ -169,7 +169,11 @@ export const Main = () => {
           onClear={onClear}
         />
       )}
-      <div className={styles.scroll} ref={scrollWidth} />
+      <div
+        className={styles.scroll}
+        ref={scroll}
+        onClick={e => scrollWidth(e)}
+      />
     </main>
   );
 };

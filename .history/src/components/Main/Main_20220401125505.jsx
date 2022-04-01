@@ -94,7 +94,7 @@ export const Main = () => {
       document.body.style.marginRight = 0;
     } else {
       document.body.style.overflow = 'hidden';
-      document.body.style.marginRight = scroll + 'px';
+      document.body.style.marginRight = scroll;
     }
   };
 
