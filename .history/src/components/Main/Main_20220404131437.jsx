@@ -85,6 +85,8 @@ export const Main = () => {
 
   const onOpenModal = e => {
     setShowModal(!showModal);
+    // const scroll =
+    //   scrollWidth.current.offsetWidth - scrollWidth.current.clientWidth;
 
     let scroll =
       document.body.scrollHeight > window.innerHeight

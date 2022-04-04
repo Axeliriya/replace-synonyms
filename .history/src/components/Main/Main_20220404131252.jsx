@@ -85,8 +85,10 @@ export const Main = () => {
 
   const onOpenModal = e => {
     setShowModal(!showModal);
+    // const scroll =
+    //   scrollWidth.current.offsetWidth - scrollWidth.current.clientWidth;
 
-    let scroll =
+    let scrollW =
       document.body.scrollHeight > window.innerHeight
         ? scrollWidth.current.offsetWidth - scrollWidth.current.clientWidth
         : 0;
@@ -96,7 +98,7 @@ export const Main = () => {
       document.body.style.marginRight = '0px';
     } else {
       document.body.style.overflow = 'hidden';
-      document.body.style.marginRight = scroll + 'px';
+      document.body.style.marginRight = scrollW + 'px';
     }
   };
 

@@ -85,18 +85,22 @@ export const Main = () => {
 
   const onOpenModal = e => {
     setShowModal(!showModal);
+    const scroll =
+      scrollWidth.current.offsetWidth - scrollWidth.current.clientWidth;
+    console.dir(scroll);
 
-    let scroll =
-      document.body.scrollHeight > window.innerHeight
-        ? scrollWidth.current.offsetWidth - scrollWidth.current.clientWidth
-        : 0;
+    let scrollW =
+      document.body.offsetHeight === document.body.scrollHeight ? scroll : 0;
+    console.dir(scrollW);
+    console.dir(document.body.offsetHeight);
+    console.dir(document.body.scrollHeight);
 
     if (showModal) {
       document.body.style.overflow = 'visible';
       document.body.style.marginRight = '0px';
     } else {
       document.body.style.overflow = 'hidden';
-      document.body.style.marginRight = scroll + 'px';
+      document.body.style.marginRight = scrollW + 'px';
     }
   };
 

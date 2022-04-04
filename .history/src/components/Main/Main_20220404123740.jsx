@@ -85,11 +85,12 @@ export const Main = () => {
 
   const onOpenModal = e => {
     setShowModal(!showModal);
-
     let scroll =
-      document.body.scrollHeight > window.innerHeight
-        ? scrollWidth.current.offsetWidth - scrollWidth.current.clientWidth
-        : 0;
+      scrollWidth.current.offsetWidth - scrollWidth.current.clientWidth;
+    // if(document.body.)
+    console.log(scroll);
+    console.dir(document.body.offsetHeight);
+    console.dir(document.body.scrollHeight);
 
     if (showModal) {
       document.body.style.overflow = 'visible';
